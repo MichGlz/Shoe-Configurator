@@ -1,0 +1,79 @@
+:root {
+  --current-color: #850989;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+  background: rgb(119, 196, 213);
+  background: linear-gradient(-45deg, rgba(119, 196, 213, 1) 5%, rgba(245, 215, 77, 1) 48%, rgba(192, 99, 165, 1) 94%);
+}
+
+#screen {
+  width: 60%;
+  background-color: rgb(255, 255, 255);
+}
+
+.cls-1:hover .cls-2 {
+  stroke: #131111;
+  stroke-width: 6;
+  filter: blur(2px);
+  stroke-dasharray: 30;
+  animation: dash 15s linear;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+#cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  cursor: none;
+  pointer-events: none;
+  display: none;
+  transform: translateX(-100%);
+}
+
+g[data-name="btn-color"]:hover path[data-name="cant"] {
+  fill: rgb(226, 226, 226);
+}
+
+#shoes {
+  cursor: none;
+}
+
+.btn-action {
+  cursor: pointer;
+}
+
+.btn-action:hover .cls-12 {
+  stroke: #cea3a3;
+  fill: #000;
+}
+.btn-action:hover g {
+  stroke: #cea3a3;
+  fill: #cea3a3;
+}
+
+#plaque:hover .cls-2 {
+  stroke: transparent;
+  stroke-width: 0;
+  filter: blur(0);
+}

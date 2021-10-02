@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 118.57 163.16">
+        <defs>
+          <style>
+            .cls-triangle {
+              fill: #020202;
+              stroke-width: 0.55px;
+            }
+
+            .cls-triangle {
+              stroke: #000;
+              stroke-miterlimit: 10;
+            }
+
+            .cls-21 {
+              stroke: #000;
+              stroke-miterlimit: 10;
+              fill: #fff;
+            }
+          </style>
+        </defs>
+        <g id="Layer_4" data-name="Layer 4">
+          <polygon id="pointer" class="cls-triangle" points="118.57 0 90.17 0 118.54 26.42 118.57 0" />
+          <g id="pocket">
+            <path id="cant" class="cls-3" d="M9.18,45.93v92.13c0,9.66,22.17,17.5,49.5,17.5s49.5-7.84,49.5-17.5V45.93Z" />
+            <path
+              id="paint-stain"
+              class="cls-21"
+              d="M9.08,49.05C10,62.42,11.6,92.49,14,92.64c3.19.2,5.34-18,9.69-18,5.79,0,9,32.3,13.65,32.14S44,82.09,49,82.07c2.85,0,5.93,14.94,9.64,15,4,0,4-22.47,8.86-22.9,5.28-.48,6,26.29,11,26,3.86-.25,6-20.42,10.39-20.26,1.49.06,2,2.48,5.9,7.93,3.6,5.06,5.25,7.7,6.16,7.48,3.32-.77-4-26.1,5.29-32.14,2.58-1.69.2-14.67,2.75-14.09"
+            />
+            <ellipse id="top-cant" class="cls-3" cx="58.68" cy="47.43" rx="49.5" ry="17.5" />
+            <ellipse id="paint" class="cls-21" cx="58.68" cy="47.43" rx="44.5" ry="12.5" />
+          </g>
+        </g>
+      </svg>
