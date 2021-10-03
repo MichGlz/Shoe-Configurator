@@ -2,9 +2,9 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
-let currentColor = "white";
+let currentColor = "#ffffff";
 
-let partColor = {
+const partColor = {
   shoelaces: "#ffffff",
   plaque: "#ffffff",
   labels: "#ffffff",
@@ -50,18 +50,19 @@ function selectButtons() {
     btn.addEventListener("click", selectColor);
   });
   //selectig the shoes
-  const shoes = document.querySelector("#shoes");
+  const parts = document.querySelectorAll("#shoes .cls-1");
 
   //applying the color in the diferent parts
-  shoes.addEventListener("click", getPartId);
+  parts.forEach((part) => {
+    part.addEventListener("click", getPartId);
 
-  //reading x and y for cursor
-  shoes.addEventListener("mousemove", cursorPosition);
-  shoes.addEventListener("mouseout", () => {
-    const cursor = document.querySelector("#cursor");
-    cursor.style.display = `none`;
+    //reading x and y for cursor
+    part.addEventListener("mousemove", cursorPosition);
+    part.addEventListener("mouseout", () => {
+      const cursor = document.querySelector("#cursor");
+      cursor.style.display = `none`;
+    });
   });
-
   //botton reset click
   document.querySelector("#reset").addEventListener("click", resetColors);
 
@@ -84,22 +85,14 @@ function selectColor(e) {
 
 /////////////////////////////////////////////////////////////
 function getPartId(e) {
-  const section = e.target.parentElement.id;
-  // console.log(section);
-  if (section === "mySvg" || section === "shoes") {
-    return;
-  }
+  const section = this.id;
   applyColor(section, currentColor);
 }
 
 /////////////////////////////////////////////////////////
 function applyColor(section, color) {
-  document.querySelectorAll(`#${section} .cls-2`).forEach((part) => {
-    part.style.fill = color;
-  });
-
+  document.querySelector(`#${section}`).style.fill = color;
   partColor[section] = color;
-
   document.querySelectorAll(".cls-20").forEach((part) => (part.style.fill = partColor.eyestay));
 }
 
@@ -122,27 +115,16 @@ function resetColors() {
 
 //////////////////////////////////////////////////
 function saveColors() {
-  if ("mySvg" in partColor) {
-    delete partColor["mySvg"];
-  }
-  if ("shoes" in partColor) {
-    delete partColor["shoes"];
-  }
   localStorage.setItem("myShoesColors", JSON.stringify(partColor));
   alert("Your selection is save");
 }
 
 ////////////////////////////////////////////////
 function getMyColors() {
-  partColor = JSON.parse(localStorage.getItem("myShoesColors"));
-  if ("mySvg" in partColor) {
-    delete partColor["mySvg"];
-  }
-  if ("shoes" in partColor) {
-    delete partColor["shoes"];
-  }
+  const myShoesColors = JSON.parse(localStorage.getItem("myShoesColors"));
   const colorProperties = Object.keys(partColor);
   colorProperties.forEach((key) => {
+    partColor[key] = myShoesColors[key];
     applyColor(key, partColor[key]);
   });
 }
