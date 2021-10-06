@@ -1,5 +1,5 @@
 :root {
-  --current-color: #850989;
+  --current-color: #fff;
 }
 
 * {
@@ -23,6 +23,7 @@ body {
 #screen {
   width: 60%;
   background-color: rgb(255, 255, 255);
+  position: relative;
 }
 
 .cls-1:hover .cls-2 {
@@ -31,6 +32,7 @@ body {
   filter: blur(2px);
   stroke-dasharray: 30;
   animation: dash 15s linear;
+  fill: var(--current-color);
 }
 
 @keyframes dash {
@@ -76,4 +78,15 @@ g[data-name="btn-color"]:hover path[data-name="cant"] {
   stroke: transparent;
   stroke-width: 0;
   filter: blur(0);
+  fill: var(--current-color);
+}
+
+#colorSelector {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  top: 86%;
+  left: 54%;
+  width: 5%;
+  height: 8%;
 }

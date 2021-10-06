@@ -36,7 +36,7 @@ function start() {
       return res.text();
     })
     .then(function (data) {
-      document.querySelector("#screen").innerHTML = data;
+      document.querySelector("#screen").innerHTML += data;
       selectButtons();
     });
 
@@ -49,6 +49,9 @@ function selectButtons() {
   document.querySelectorAll('g[data-name="btn-color"]').forEach((btn) => {
     btn.addEventListener("click", selectColor);
   });
+
+  document.querySelector('g[data-color="#ffffff"]').removeEventListener("click", selectColor);
+  document.querySelector("#colorSelector").addEventListener("input", pickColor);
   //selectig the shoes
   const parts = document.querySelectorAll("#shoes .cls-1");
 
@@ -81,6 +84,8 @@ function selectColor(e) {
   document.querySelectorAll("#pocket .cls-21").forEach((paint) => {
     paint.style.fill = currentColor;
   });
+  //set color in hover
+  document.querySelector(":root").style.setProperty("--current-color", currentColor);
 }
 
 /////////////////////////////////////////////////////////////
@@ -111,6 +116,9 @@ function resetColors() {
   document.querySelectorAll("#pocket .cls-21").forEach((paint) => {
     paint.style.fill = currentColor;
   });
+
+  //css :root current color white
+  document.querySelector(":root").style.setProperty("--current-color", currentColor);
 }
 
 //////////////////////////////////////////////////
@@ -136,3 +144,5 @@ function cursorPosition(e) {
   cursor.style.left = `${e.pageX}px`;
   cursor.style.top = `${e.pageY}px`;
 }
+
+function pickColor(e) {}
