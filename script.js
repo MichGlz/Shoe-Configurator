@@ -79,8 +79,9 @@ function selectButtons() {
 
 ///////////////////////////////////////////////////////
 function selectColor(e) {
-  // console.log(e.target.parentElement.dataset.color);
+  //selecting the color from the paint bucket
   currentColor = e.target.parentElement.dataset.color;
+  //changing colors in the paint bucket cursor
   document.querySelectorAll("#pocket .cls-21").forEach((paint) => {
     paint.style.fill = currentColor;
   });
